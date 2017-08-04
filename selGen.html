@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        select {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Planet</h1>
+    </div>
+    <script>
+        'use strict';
+
+
+        var root = {
+            Earth: {
+                continents: {
+                    africa: {
+                        countries: {
+                            Kenya: {
+                                cities: {
+                                    Nairobi: 'here'
+                                }
+                            },
+                            egypt: 'here'
+                        }
+                    },
+                    asia: {
+                        countries: {
+                            Japan: {
+                                cities: {
+                                    osaka: 'here',
+                                    tokyo: 'here'
+                                }
+                            },
+                            southKorea: 'here',
+                            china: {
+                                cities: {
+                                    hongkong: 'here'
+                                }
+                            }
+                        }
+                    },
+                    australia: {
+                        cities: {
+                            sydney: 'end'
+                        }
+                    },
+                    europe: {
+                        countries: {
+                            france: 'here',
+                            Germany: 'here',
+                            turkey: 'here',
+                            UK: 'here'
+                        }
+
+                    }, southAmerica: {
+                        countries: {
+                            brazil: 'here'
+                        }
+
+                    },
+                    northAmerica: {
+                        countries: {
+                            USA: {},
+                            Canada: {
+                                countries: {
+                                    toronto: {
+                                        subwayStops: {
+                                            jane: {
+                                                intersection: {
+                                                    stclairs: 'the girl works at the store'
+                                                }
+                                            },
+                                            keele: 'here'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            },
+            Mars: 'mars rover'
+        }
+
+        window.onload = function () {
+
+            var container = document.getElementById('container')
+            var cnt = 0
+            var titles = ['cities', 'countries']
+
+            var processSelct = (data, id) => {
+                data instanceof Object ? createElement(data, id) : console.log(data)
+            }
+
+
+            /**
+                     * @desc  ideally filters out nodes with
+                     *  one option into titles for the next set of children
+            */
+
+            var createElement = (data, parentId) => {
+                cnt += 1
+                var vals = Object.keys(data)
+                var selectTag
+
+                if (titles.indexOf(vals[0]) > -1) {
+                    // titleCreator(vals[0])
+                    // onSelectChange(parseInt(), vals[0], data)
+                    selectTag = selectCreator(data, vals)
+                } else {
+                    selectTag = selectCreator(data, vals)
+                }
+                container.appendChild(selectTag)
+            }
+
+            
+            //--------------------------------------------------------------------------------
+
+            var titleCreator = v => {
+                var title = document.createElement('h1')
+                title.classList.add('sTag')
+                title.id = cnt
+                title.innerHTML = v
+                container.appendChild(title)
+            }
+
+            //--------------------------------------------------------------------------------
+
+            var selectCreator = (data, vals) => {
+
+                var selectTag = document.createElement('SELECT')
+                childToOpt('--', selectTag)
+                vals.map(child => childToOpt(child, selectTag))
+
+                selectTag.addEventListener('change', e => {
+                    onSelectChange(parseInt(e.target.id), e.target.value, data)
+                }, false)
+
+                return selectTag
+            }
+            //--------------------------------------------------------------------------------
+
+            var onSelectChange = (targId, value, data) => {
+                cnt = targId
+                var arr = document.getElementsByClassName('sTag')
+
+                Array.from(arr)
+                    .filter(x => { return x.id > cnt })
+                    .map(x => x.parentNode.removeChild(x))
+
+                processSelct(data[value], targId)
+            }
+
+            var childToOpt = (x, selectTag) => {
+                var opt = document.createElement('OPTION')
+                opt.innerHTML = x
+                opt.value = x
+
+                selectTag.classList.add('sTag')
+                selectTag.id = cnt
+                selectTag.appendChild(opt)
+            }
+
+            processSelct(root)
+        }
+    </script>
+</body>
+
+</html>

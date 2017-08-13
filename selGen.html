@@ -7,6 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body {
+            background: #fff;
+            color: #1d2129;
+            direction: ltr;
+            line-height: 1.34;
+            margin: 10px;
+            padding: 0;
+            unicode-bidi: embed;
+        }
+
+        h1 {
+            display: inline-block;
+            font-family: inherit;
+            margin: 0;
+            padding: 0;
+            padding-top: 10px;
+            -webkit-font-smoothing: subpixel-antialiased;
+            color: #333;
+            display: block;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: -0.01em;
+            line-height: 36px;
+            text-rendering: optimizelegibility;
+            zoom: 1;
+        }
+
         select {
             display: block;
             margin-top: 10px;
@@ -75,7 +103,7 @@
                         countries: {
                             USA: {},
                             Canada: {
-                                countries: {
+                                cities: {
                                     toronto: {
                                         subwayStops: {
                                             jane: {
@@ -103,9 +131,8 @@
             var titles = ['cities', 'countries']
 
             var processSelct = (data, id) => {
-                data instanceof Object ? createElement(data, id) : console.log(data)
+                data instanceof Object ? createElement(data, id) : console.log('last node:' + data)
             }
-
 
             /**
                      * @desc  ideally filters out nodes with
@@ -118,37 +145,31 @@
                 var selectTag
 
                 if (titles.indexOf(vals[0]) > -1) {
-                    // titleCreator(vals[0])
-                    // onSelectChange(parseInt(), vals[0], data)
-                    selectTag = selectCreator(data, vals)
+                    selectTag = titleCreator(data, vals)
+                    container.appendChild(selectTag)
+                    onSelectChange(cnt, vals, data)
                 } else {
                     selectTag = selectCreator(data, vals)
+                    selectTag.addEventListener('change', e => { onSelectChange(parseInt(e.target.id), e.target.value, data) }, false)
+                    container.appendChild(selectTag)
                 }
-                container.appendChild(selectTag)
-            }
-
-            
-            //--------------------------------------------------------------------------------
-
-            var titleCreator = v => {
-                var title = document.createElement('h1')
-                title.classList.add('sTag')
-                title.id = cnt
-                title.innerHTML = v
-                container.appendChild(title)
             }
 
             //--------------------------------------------------------------------------------
+
+            var titleCreator = (data, vals) => {
+                var titleTag = document.createElement('H1')
+                titleTag.innerHTML = vals
+                titleTag.classList.add('sTag')
+                titleTag.id = cnt
+                return titleTag
+            }
 
             var selectCreator = (data, vals) => {
 
                 var selectTag = document.createElement('SELECT')
                 childToOpt('--', selectTag)
                 vals.map(child => childToOpt(child, selectTag))
-
-                selectTag.addEventListener('change', e => {
-                    onSelectChange(parseInt(e.target.id), e.target.value, data)
-                }, false)
 
                 return selectTag
             }
@@ -159,7 +180,7 @@
                 var arr = document.getElementsByClassName('sTag')
 
                 Array.from(arr)
-                    .filter(x => { return x.id > cnt })
+                    .filter(x => { return x.id > targId })
                     .map(x => x.parentNode.removeChild(x))
 
                 processSelct(data[value], targId)
@@ -174,6 +195,8 @@
                 selectTag.id = cnt
                 selectTag.appendChild(opt)
             }
+
+            //--------------------------------------------------------------------------------
 
             processSelct(root)
         }

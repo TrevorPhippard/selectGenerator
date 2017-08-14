@@ -17,7 +17,7 @@
             unicode-bidi: embed;
         }
 
-        h1 {
+        h1,h2 {
             display: inline-block;
             font-family: inherit;
             margin: 0;
@@ -35,6 +35,11 @@
             zoom: 1;
         }
 
+        h2{
+            font-size: 18px;
+            font-weight: 400;
+        }
+
         select {
             display: block;
             margin-top: 10px;
@@ -42,7 +47,7 @@
 
         #product_img{
             height: 300px;
-            width:300px;
+            width:auto;
         }
     </style>
 </head>
@@ -311,7 +316,7 @@
             //--------------------------------------------------------------------------------
 
             var titleCreator = (data, vals) => {
-                var titleTag = document.createElement('H1')
+                var titleTag = document.createElement('H2')
                 titleTag.innerHTML = vals
                 titleTag.classList.add('sTag')
                 titleTag.id = cnt

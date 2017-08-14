@@ -26,7 +26,7 @@
             -webkit-font-smoothing: subpixel-antialiased;
             color: #333;
             display: block;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 28px;
             font-weight: bold;
             letter-spacing: -0.01em;
@@ -39,96 +39,237 @@
             display: block;
             margin-top: 10px;
         }
+
+        #product_img{
+            height: 300px;
+            width:300px;
+        }
     </style>
 </head>
 
 <body>
 
     <div id="container">
-        <h1>Planet</h1>
+        <h1>Phones</h1>
     </div>
+
+        <img id="product_img" src="" alt="">
+        <h1 id="product_name"></h1>
+        
     <script>
         'use strict';
 
-
         var root = {
-            Earth: {
-                continents: {
-                    africa: {
-                        countries: {
-                            Kenya: {
-                                cities: {
-                                    Nairobi: 'here'
-                                }
-                            },
-                            egypt: 'here'
-                        }
-                    },
-                    asia: {
-                        countries: {
-                            Japan: {
-                                cities: {
-                                    osaka: 'here',
-                                    tokyo: 'here'
-                                }
-                            },
-                            southKorea: 'here',
-                            china: {
-                                cities: {
-                                    hongkong: 'here'
+            Years: {
+                '2017': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
                                 }
                             }
-                        }
-                    },
-                    australia: {
-                        cities: {
-                            sydney: 'end'
-                        }
-                    },
-                    europe: {
-                        countries: {
-                            france: 'here',
-                            Germany: 'here',
-                            turkey: 'here',
-                            UK: 'here'
-                        }
-
-                    }, southAmerica: {
-                        countries: {
-                            brazil: 'here'
-                        }
-
-                    },
-                    northAmerica: {
-                        countries: {
-                            USA: {},
-                            Canada: {
-                                cities: {
-                                    toronto: {
-                                        subwayStops: {
-                                            jane: {
-                                                intersection: {
-                                                    stclairs: 'the girl works at the store'
-                                                }
-                                            },
-                                            keele: 'here'
-                                        }
-                                    }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone7': {
+                                    name: 'iphone7',
+                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/H/E5/HE575/HE575_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1465322718068'
+                                },
+                                'iphone7 Plus': {
+                                    name: 'iphone7 Plus',
+                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/H/E5/HE575/HE575_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1465322718068'
                                 }
                             }
-                        }
+                        },
+                    },
+                },
+
+                '2016': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                }
+                            }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone6': {
+                                    name: 'iphone6',
+                                    imgUrl: 'https://www.att.com/catalog/en/skus/images/apple-iphone%206%2032gb-space%20gray-450x350.png'
+                                },
+                                'iphone6 Plus': {
+                                    name: 'iphone6 Plus',
+                                    imgUrl: 'https://www.att.com/catalog/en/skus/images/apple-iphone%206%2032gb-space%20gray-450x350.png'
+                                }
+                            }
+                        },
+                    }
+                },
+
+                '2015': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                }
+                            }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone5': {
+                                    name: 'iphone5',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SlqH1xc5L._SX425_.jpg'
+                                },
+                                'iphone5 Plus': {
+                                    name: 'iphone5 Plus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SlqH1xc5L._SX425_.jpg'
+                                }
+                            }
+                        },
+                    }
+                },
+
+                '2014': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                }
+                            }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone4': {
+                                    name: 'iphone4',
+                                    imgUrl: 'http://support.bell.ca/styles/wireless/all_languages/all_regions/catalog_images/large/mobile/front/70425_iphone_3gs.jpg'
+                                },
+                                'iphone4 Plus': {
+                                    name: 'iphone4 Plus',
+                                    imgUrl: 'http://support.bell.ca/styles/wireless/all_languages/all_regions/catalog_images/large/mobile/front/70425_iphone_3gs.jpg'
+                                }
+                            }
+                        },
+                    }
+                },
+
+                '2013': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                }
+                            }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone3': {
+                                    name: 'iphone3',
+                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/HQ/HHQD2/HHQD2_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1484157296495'
+                                },
+                                'iphone3 Plus': {
+                                    name: 'iphone3 Plus',
+                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/HQ/HHQD2/HHQD2_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1484157296495'
+                                }
+                            }
+                        },
 
                     }
+                },
+                '2012': {
+                    os: {
+                        android: {
+                            'device': {
+                                nexus: {
+                                    name: 'nexus',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+                                },
+                                galaxy: {
+                                    name: 'galaxy',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
+                                },
+                                htc: {
+                                    name: 'htc',
+                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                }
+                            }
+                        },
+                        apple: {
+                            'device': {
+                                'iphone2': {
+                                    name: 'iphone2',
+                                    imgUrl: 'http://cdn1.sbnation.com/products/large/37/done-apple-iphone-1.jpg'
+                                },
+                                'iphone2 Plus': {
+                                    name: 'iphone2 Plus',
+                                    imgUrl: 'http://cdn1.sbnation.com/products/large/37/done-apple-iphone-1.jpg'
+                                }
+                            }
+                        }
+                    }
                 }
-            },
-            Mars: 'mars rover'
+
+            }
         }
+
+    //--------------------------------------------------------------------------------
 
         window.onload = function () {
 
             var container = document.getElementById('container')
             var cnt = 0
-            var titles = ['cities', 'countries']
+            var titles = ['Years', 'os','device']
+            var end = ['imgUrl']
 
             var processSelct = (data, id) => {
                 data instanceof Object ? createElement(data, id) : console.log('last node:' + data)
@@ -139,12 +280,24 @@
                      *  one option into titles for the next set of children
             */
 
+            var objHas = function (arr, ref) {
+                return arr.indexOf(ref) > -1
+            }
+
             var createElement = (data, parentId) => {
                 cnt += 1
                 var vals = Object.keys(data)
                 var selectTag
 
-                if (titles.indexOf(vals[0]) > -1) {
+                if (objHas(end, vals[1])) {
+                    document.getElementById("product_name").innerHTML = data.name
+                    document.getElementById("product_img").src = data.imgUrl
+                    // console.log(vals)
+                    // console.log(vals[0],vals[1])
+                    console.log( data)
+
+                }
+                else if (objHas(titles, vals[0])) {
                     selectTag = titleCreator(data, vals)
                     container.appendChild(selectTag)
                     onSelectChange(cnt, vals, data)

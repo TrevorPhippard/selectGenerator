@@ -17,7 +17,8 @@
             unicode-bidi: embed;
         }
 
-        h1,h2 {
+        h1,
+        h2 {
             display: inline-block;
             font-family: inherit;
             margin: 0;
@@ -35,7 +36,7 @@
             zoom: 1;
         }
 
-        h2{
+        h2 {
             font-size: 18px;
             font-weight: 400;
         }
@@ -45,9 +46,9 @@
             margin-top: 10px;
         }
 
-        #product_img{
+        #product_img {
             height: 300px;
-            width:auto;
+            width: auto;
         }
     </style>
 </head>
@@ -55,15 +56,14 @@
 <body>
 
     <div id="container">
-        <h1>Phones</h1>
+        <h1>PHONES:</h1>
     </div>
 
-        <img id="product_img" src="" alt="">
-        <h1 id="product_name"></h1>
-        
+    <img id="product_img" src="" alt="">
+    <h1 id="product_name"></h1>
+
     <script>
         'use strict';
-
         var root = {
             Years: {
                 '2017': {
@@ -98,7 +98,6 @@
                         },
                     },
                 },
-
                 '2016': {
                     os: {
                         android: {
@@ -131,7 +130,6 @@
                         },
                     }
                 },
-
                 '2015': {
                     os: {
                         android: {
@@ -164,7 +162,6 @@
                         },
                     }
                 },
-
                 '2014': {
                     os: {
                         android: {
@@ -197,7 +194,6 @@
                         },
                     }
                 },
-
                 '2013': {
                     os: {
                         android: {
@@ -228,7 +224,6 @@
                                 }
                             }
                         },
-
                     }
                 },
                 '2012': {
@@ -263,101 +258,82 @@
                         }
                     }
                 }
-
             }
         }
 
-    //--------------------------------------------------------------------------------
 
         window.onload = function () {
-
             var container = document.getElementById('container')
-            var cnt = 0
-            var titles = ['Years', 'os','device']
-            var end = ['imgUrl']
-
-            var processSelct = (data, id) => {
-                data instanceof Object ? createElement(data, id) : console.log('last node:' + data)
-            }
-
-            /**
-                     * @desc  ideally filters out nodes with
-                     *  one option into titles for the next set of children
-            */
-
-            var objHas = function (arr, ref) {
-                return arr.indexOf(ref) > -1
-            }
-
-            var createElement = (data, parentId) => {
-                cnt += 1
-                var vals = Object.keys(data)
-                var selectTag
-
-                if (objHas(end, vals[1])) {
-                    document.getElementById("product_name").innerHTML = data.name
-                    document.getElementById("product_img").src = data.imgUrl
-                    // console.log(vals)
-                    // console.log(vals[0],vals[1])
-                    console.log( data)
-
-                }
-                else if (objHas(titles, vals[0])) {
-                    selectTag = titleCreator(data, vals)
-                    container.appendChild(selectTag)
-                    onSelectChange(cnt, vals, data)
-                } else {
-                    selectTag = selectCreator(data, vals)
-                    selectTag.addEventListener('change', e => { onSelectChange(parseInt(e.target.id), e.target.value, data) }, false)
-                    container.appendChild(selectTag)
-                }
-            }
-
-            //--------------------------------------------------------------------------------
-
-            var titleCreator = (data, vals) => {
-                var titleTag = document.createElement('H2')
-                titleTag.innerHTML = vals
-                titleTag.classList.add('sTag')
-                titleTag.id = cnt
-                return titleTag
-            }
-
-            var selectCreator = (data, vals) => {
-
-                var selectTag = document.createElement('SELECT')
-                childToOpt('--', selectTag)
-                vals.map(child => childToOpt(child, selectTag))
-
-                return selectTag
-            }
-            //--------------------------------------------------------------------------------
-
-            var onSelectChange = (targId, value, data) => {
-                cnt = targId
-                var arr = document.getElementsByClassName('sTag')
-
-                Array.from(arr)
-                    .filter(x => { return x.id > targId })
-                    .map(x => x.parentNode.removeChild(x))
-
-                processSelct(data[value], targId)
-            }
-
-            var childToOpt = (x, selectTag) => {
-                var opt = document.createElement('OPTION')
-                opt.innerHTML = x
-                opt.value = x
-
-                selectTag.classList.add('sTag')
-                selectTag.id = cnt
-                selectTag.appendChild(opt)
-            }
-
-            //--------------------------------------------------------------------------------
-
-            processSelct(root)
+            readerMan(root)
         }
+
+        var titles = ['Years', 'os', 'device']
+        var cnt = 0
+
+        var readerMan = (o) => {
+            if (o === null || o === undefined) {
+                console.log('object undefined')
+            } else if (typeof o === 'string') {
+                console.log('End of nodes')
+            } else {
+                cnt++
+                var layer = Object.keys(o)
+                var isTitle = layer.every(elem => titles.indexOf(elem) > -1);
+                if (isTitle) {
+                    createTitle(layer)
+                    readerMan(o[layer[0]])
+                } else {
+                    addMagicSelector(o, layer)
+                }
+
+            }
+        }
+
+        function addMagicSelector(o, layer) {
+            var selectTag = document.createElement('SELECT')
+            selectTag.id = cnt
+            selectTag.classList.add('tag')
+
+            selectTag.addEventListener('change', e => {
+                cnt = e.target.id
+                logData(e.target.previousSibling,e.target)
+                removeNextChildren(e)
+                readerMan(o[e.target.value])
+            }, false)
+
+            createOpt('--', selectTag)
+            layer.map(x => { createOpt(x, selectTag) })
+
+            container.appendChild(selectTag)
+        }
+
+        function removeNextChildren(e) {
+            Array.from(document.getElementsByClassName('tag'))
+                 .filter(x => parseInt(x.id) > parseInt(e.target.id))
+                 .map(x => x.parentNode.removeChild(x))
+        }
+
+        function createTitle(layer) {
+            var title = document.createElement('h1')
+            title.id = cnt
+            title.classList.add('tag')
+            title.innerHTML = layer[0]
+            container.appendChild(title)
+        }
+
+        function createOpt(x, selectTag) {
+            var opt = document.createElement('OPTION')
+            opt.innerHTML = x
+            opt.value = x
+            selectTag.appendChild(opt)
+        }
+
+        function logData(id,val){
+            var a = id.innerHTML
+            var b = val.value
+            console.log(a+' : '+b)
+        }
+
     </script>
 </body>
 

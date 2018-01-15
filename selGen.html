@@ -56,284 +56,159 @@
 <body>
 
     <div id="container">
-        <h1>PHONES:</h1>
+        <h1>Example:</h1>
     </div>
 
     <img id="product_img" src="" alt="">
     <h1 id="product_name"></h1>
 
     <script>
+
         'use strict';
+
+
         var root = {
-            Years: {
-                '2017': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
+            "q1": {
+                "yes": {
+                    "q2": {
+                        "sure": {
+                            "q3": {
+                                "confirm": {
+                                    "answer1": '1.jpg'
                                 },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
+                                "denied": {
+                                    "answer2": '1.jpg'
                                 }
                             }
                         },
-                        apple: {
-                            'device': {
-                                'iphone7': {
-                                    name: 'iphone7',
-                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/H/E5/HE575/HE575_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1465322718068'
-                                },
-                                'iphone7 Plus': {
-                                    name: 'iphone7 Plus',
-                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/H/E5/HE575/HE575_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1465322718068'
-                                }
-                            }
-                        },
-                    },
-                },
-                '2016': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
-                                },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
-                                }
-                            }
-                        },
-                        apple: {
-                            'device': {
-                                'iphone6': {
-                                    name: 'iphone6',
-                                    imgUrl: 'https://www.att.com/catalog/en/skus/images/apple-iphone%206%2032gb-space%20gray-450x350.png'
-                                },
-                                'iphone6 Plus': {
-                                    name: 'iphone6 Plus',
-                                    imgUrl: 'https://www.att.com/catalog/en/skus/images/apple-iphone%206%2032gb-space%20gray-450x350.png'
-                                }
-                            }
-                        },
+                        "nope": {
+                            "answer3": '1.jpg'
+                        }
                     }
                 },
-                '2015': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
-                                },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
-                                }
-                            }
+                "no": {
+                    "q2": {
+                        "okay": {
+                            "answer4": '1.jpg'
                         },
-                        apple: {
-                            'device': {
-                                'iphone5': {
-                                    name: 'iphone5',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SlqH1xc5L._SX425_.jpg'
-                                },
-                                'iphone5 Plus': {
-                                    name: 'iphone5 Plus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81SlqH1xc5L._SX425_.jpg'
-                                }
-                            }
-                        },
-                    }
-                },
-                '2014': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
-                                },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
-                                }
-                            }
-                        },
-                        apple: {
-                            'device': {
-                                'iphone4': {
-                                    name: 'iphone4',
-                                    imgUrl: 'http://support.bell.ca/styles/wireless/all_languages/all_regions/catalog_images/large/mobile/front/70425_iphone_3gs.jpg'
-                                },
-                                'iphone4 Plus': {
-                                    name: 'iphone4 Plus',
-                                    imgUrl: 'http://support.bell.ca/styles/wireless/all_languages/all_regions/catalog_images/large/mobile/front/70425_iphone_3gs.jpg'
-                                }
-                            }
-                        },
-                    }
-                },
-                '2013': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
-                                },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
-                                }
-                            }
-                        },
-                        apple: {
-                            'device': {
-                                'iphone3': {
-                                    name: 'iphone3',
-                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/HQ/HHQD2/HHQD2_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1484157296495'
-                                },
-                                'iphone3 Plus': {
-                                    name: 'iphone3 Plus',
-                                    imgUrl: 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/HQ/HHQD2/HHQD2_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1484157296495'
-                                }
-                            }
-                        },
-                    }
-                },
-                '2012': {
-                    os: {
-                        android: {
-                            'device': {
-                                nexus: {
-                                    name: 'nexus',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41kZD8p1SdL.jpg'
-                                },
-                                galaxy: {
-                                    name: 'galaxy',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/41Hfken0ZhL.jpg'
-                                },
-                                htc: {
-                                    name: 'htc',
-                                    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81wQcBEvF5L._SY679_.jpg'
-                                }
-                            }
-                        },
-                        apple: {
-                            'device': {
-                                'iphone2': {
-                                    name: 'iphone2',
-                                    imgUrl: 'http://cdn1.sbnation.com/products/large/37/done-apple-iphone-1.jpg'
-                                },
-                                'iphone2 Plus': {
-                                    name: 'iphone2 Plus',
-                                    imgUrl: 'http://cdn1.sbnation.com/products/large/37/done-apple-iphone-1.jpg'
-                                }
-                            }
+                        "uh no": {
+                            "answer5": '1.jpg'
                         }
                     }
                 }
+
             }
-        }
+        };
+
 
 
         window.onload = function () {
-            var container = document.getElementById('container')
-            readerMan(root)
-        }
 
-        var titles = ['Years', 'os', 'device']
-        var cnt = 0
+            var titles = ['q1', 'q2', 'q3', 'answer1', 'answer2', 'answer3', 'answer4', 'answer5'];
 
-        var readerMan = (o) => {
-            if (o === null || o === undefined) {
-                console.log('object undefined')
-            } else if (typeof o === 'string') {
-                console.log('End of nodes')
-            } else {
-                cnt++
-                var layer = Object.keys(o)
-                var isTitle = layer.every(elem => titles.indexOf(elem) > -1);
-                if (isTitle) {
-                    createTitle(layer)
-                    readerMan(o[layer[0]])
-                } else {
-                    addMagicSelector(o, layer)
+            /**
+             * Password Template Script
+             * ------------------------------------------------------------------------------
+             * A file that contains scripts highly couple code to the Password template.
+             *
+             * @desc class for transversing a decision tree
+             * @namespace AI
+             */
+
+            var container = document.getElementById('container');
+            var chatBot = new AI(titles)
+                chatBot.renderer(root);
+
+            function AI(arr) {
+
+                var cnt = 0
+                var rootInfo;
+                var qa = arr
+
+                function renderer(rootLayer) {
+                    rootInfo = rootLayer
+
+                    if (rootInfo === null || rootInfo === undefined) {
+                        return console.log('--')
+                    } 
+                    else if (typeof rootInfo === 'string') { 
+                        return console.log(rootInfo,'End of nodes')
+                    } 
+                    else { return titleOrQuestion() }
+                }
+
+                
+                function titleOrQuestion() {
+                    cnt++;
+                    var rootLevel = Object.keys(rootInfo);
+                    var isTitle = rootLevel.every(function (elem) { return titles.indexOf(elem) > -1 });
+                    return isTitle ? renderer(createTitle(rootLevel)) : createQuestion(rootLevel);
+                }
+
+                function createQuestion(rootLevel) {
+
+                    var currLvl = rootInfo
+
+                    var selectTag = document.createElement('SELECT');
+                        selectTag.id = cnt;
+                        selectTag.classList.add('tag');
+
+                    createOpt('--', selectTag);
+                    rootLevel.map(function (x) { createOpt(x, selectTag) });
+                    container.appendChild(selectTag);
+
+                    selectTag.addEventListener('change', function (e) {
+                        cnt = e.target.id;
+                        logData(e.target.previousSibling, e.target);
+                        removeNextChildren(e);
+                        renderer(currLvl[e.target.value]);
+                    }, false);
+                }
+
+                function createTitle(rootLevel) {
+
+                    var title = document.createElement('h1');
+                        title.id = cnt;
+                        title.classList.add('tag');
+                        title.innerHTML = rootLevel[0];
+
+                    container.appendChild(title);
+
+                    return rootInfo[rootLevel[0]];
+                }
+
+                function removeNextChildren(e) {
+                return Array.from(document.getElementsByClassName('tag'))
+                            .filter(function (x) { return parseInt(x.id) > parseInt(e.target.id) })
+                            .map(function (x) { return x.parentNode.removeChild(x) });
+                }
+
+                function createOpt(x, selectTag) {
+                    var opt = document.createElement('OPTION');
+                        opt.innerHTML = x;
+                        opt.value = x;
+                
+                return selectTag.appendChild(opt);
+                }
+
+                function logData(id, val) {
+                    return console.log('Log: ' + id.innerHTML + ': ' + val.value);
+                }
+
+                return {
+                    renderer: renderer,
+                    logData: logData,
                 }
 
             }
-        }
 
-        function addMagicSelector(o, layer) {
-            var selectTag = document.createElement('SELECT')
-            selectTag.id = cnt
-            selectTag.classList.add('tag')
 
-            selectTag.addEventListener('change', e => {
-                cnt = e.target.id
-                logData(e.target.previousSibling,e.target)
-                removeNextChildren(e)
-                readerMan(o[e.target.value])
-            }, false)
 
-            createOpt('--', selectTag)
-            layer.map(x => { createOpt(x, selectTag) })
 
-            container.appendChild(selectTag)
-        }
 
-        function removeNextChildren(e) {
-            Array.from(document.getElementsByClassName('tag'))
-                 .filter(x => parseInt(x.id) > parseInt(e.target.id))
-                 .map(x => x.parentNode.removeChild(x))
-        }
+        };
 
-        function createTitle(layer) {
-            var title = document.createElement('h1')
-            title.id = cnt
-            title.classList.add('tag')
-            title.innerHTML = layer[0]
-            container.appendChild(title)
-        }
-
-        function createOpt(x, selectTag) {
-            var opt = document.createElement('OPTION')
-            opt.innerHTML = x
-            opt.value = x
-            selectTag.appendChild(opt)
-        }
-
-        function logData(id,val){
-            var a = id.innerHTML
-            var b = val.value
-            console.log(a+' : '+b)
-        }
-
+   
     </script>
 </body>
 

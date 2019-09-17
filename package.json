@@ -1,0 +1,42 @@
+{
+    "name": "development",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha -r ts-node/register src/**.spec.ts",
+        "sass": "node-sass src/sass/index.scss -o build/",
+        "ts": "tsc",
+        "sass-watch": "node-sass -w src/sass/index.scss -o build/",
+        "ts-watch": "tsc --watch",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "dev": "npm run sass & npm run ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.2.0",
+        "@typescript-eslint/parser": "^2.2.0",
+        "eslint": "^6.3.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.3.0",
+        "eslint-import-resolver-typescript": "^1.1.1",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-json": "^1.4.0",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.14.3",
+        "prettier": "^1.18.2"
+    },
+    "dependencies": {
+        "eslint-config-airbnb-es5": "^1.2.0",
+        "jscs": "^3.0.7",
+        "node-sass": "^4.12.0",
+        "typescript": "^3.6.2"
+    },
+    "eslintConfig": {
+        "rules": {
+            "no-var": 0
+        }
+    }
+}
